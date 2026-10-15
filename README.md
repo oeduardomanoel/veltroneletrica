@@ -2,7 +2,7 @@
 
 Site da Veltron Elétrica, eletricista em Balneário Camboriú (SC), atendimento 24h.
 
-Site estático (HTML + CSS + JS puro, sem build). Pode ir para GitHub Pages, Netlify, Vercel, Cloudflare Pages ou qualquer hospedagem comum.
+Site estático (HTML + CSS + JS puro, sem build), configurado para a Vercel.
 
 ## Estrutura
 
@@ -14,7 +14,18 @@ Site estático (HTML + CSS + JS puro, sem build). Pode ir para GitHub Pages, Net
 | `llms.txt` | Resumo do negócio em texto para ChatGPT, Claude, Perplexity e afins (GEO) |
 | `site.webmanifest` | Ícones e cor do app quando salvo na tela inicial |
 | `404.html` | Página de erro |
+| `vercel.json` | Cabeçalhos, cache e URLs limpas na Vercel |
 | `assets/` | Logo, ícones, imagem de compartilhamento, fontes, CSS e JS |
+
+## Deploy na Vercel
+
+1. Em vercel.com, clique em **Add New → Project** e importe o repositório `veltroneletrica`.
+2. Framework Preset: **Other**. Deixe Build Command e Install Command vazios e Output Directory como `.` (raiz). Não precisa de variável de ambiente.
+3. Clique em **Deploy**.
+4. Em **Settings → Domains**, adicione `veltroneletrica.com.br` e `www.veltroneletrica.com.br`, deixe o domínio sem www como principal e configure o DNS conforme a Vercel indicar.
+5. Em **Settings → Git**, deixe `main` como branch de produção. Outras branches viram preview e a Vercel já marca esses previews como `noindex`.
+
+O `vercel.json` cuida de URLs limpas, cabeçalhos de segurança, cache longo para fontes e imagens e charset UTF-8 no `llms.txt`, `robots.txt` e `sitemap.xml`. O `404.html` da raiz é usado automaticamente como página de erro.
 
 ## Antes de publicar
 
